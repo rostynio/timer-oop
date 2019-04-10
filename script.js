@@ -14,7 +14,7 @@ class mainTimer{
             } else {
                 clearInterval(this.timeleft);
                 this.resetTimer();
-                this.timeleft = null
+                this.timeleft = null;
                 return
             }
             this.showTime(this.startTime);
@@ -22,9 +22,9 @@ class mainTimer{
         },1000)
         }
 
-    showTime(time){
-        const minutes = Math.floor(time / 60);
-        const remaindSeconds = time % 60;
+    showTime(seconds){
+        const minutes = Math.floor(seconds / 60);
+        const remaindSeconds = seconds % 60;
         this.blockTimer.innerText = `${minutes}:${remaindSeconds < 10 ? '0' : ''}${remaindSeconds}`;
     }
 
@@ -32,6 +32,7 @@ class mainTimer{
         this.timeline.style.width = `${100}%`;
         this.startTime = this.seconds;
         this.showTime(this.seconds);
+        this.button.textContent = "Start";
     }
 
     stopTimer() {
@@ -82,7 +83,7 @@ class mainTimer{
  
     }
 
-    new mainTimer(25);
+    const timerFirst = new mainTimer(5);
 
 class secondTimer extends mainTimer {
     constructor(seconds, defaultStart = false){
@@ -102,5 +103,5 @@ class secondTimer extends mainTimer {
     }
 }
 
-    new secondTimer(1000, true);
+    const timerSecond = new secondTimer(1000, true);
 
